@@ -1,9 +1,6 @@
 package kruskal
 
-import (
-	"fmt"
-	"testing"
-)
+import "testing"
 
 var (
 	testEdges = EdgeList{
@@ -24,6 +21,16 @@ var (
 		NewEdge(6, 0, 58),
 		NewEdge(6, 4, 93),
 	}
+
+	expectedMST = EdgeList{
+		testEdges[3],
+		testEdges[6],
+		testEdges[7],
+		testEdges[8],
+		testEdges[2],
+		testEdges[0],
+		testEdges[12],
+	}
 )
 
 func TestKruskal(t *testing.T) {
@@ -34,7 +41,10 @@ func TestKruskal(t *testing.T) {
 
 	mstEdges := kruskal(g)
 
-	for _, mstEdge := range mstEdges {
-		fmt.Printf("Start V: %d End V: %d and Weight: %d\n", mstEdge.Start, mstEdge.End, mstEdge.Weight)
+	for i, mstEdge := range mstEdges {
+		if mstEdge != expectedMST[i] {
+			t.Fail()
+			t.Logf("Got MST edge: W%d -- Expected MST edge: W%d", mstEdge.Weight, expectedMST[i].Weight)
+		}
 	}
 }

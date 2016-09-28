@@ -45,6 +45,7 @@ func (g *Graph) AddEdge(e Edge) {
 	sort.Sort(EdgeList(g.Edges))
 }
 
+//NewEdge created an edge
 func NewEdge(v1, v2 Vertex, w int) Edge {
 	return Edge{v1, v2, w}
 }
