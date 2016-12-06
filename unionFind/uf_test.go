@@ -25,6 +25,7 @@ func TestUnion(t *testing.T) {
 		fmt.Println(ufTestT.Connected(pair.from, pair.to))
 		ufTestT.Union(pair.from, pair.to)
 		fmt.Println(ufTestT.Connected(pair.from, pair.to))
+		fmt.Printf("Total components:%v\n", ufTestT.GetNumComponents())
 	}
 
 }

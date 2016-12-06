@@ -1,6 +1,6 @@
 package mst
 
-import "github.com/parpat/kruskal/unionFind"
+import "github.com/parpat/mst/unionFind"
 
 func kruskal(g Graph) EdgeList {
 
